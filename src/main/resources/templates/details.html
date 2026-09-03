@@ -10,6 +10,8 @@
     <ul>
         <li th:text="${user.name}"></li>
         <li th:text="${user.lastName}"></li>
+        <li th:if="${user.email}" th:text="${user.email}"></li> <!-- Se agrega una condicion para que solo se muestre el email si este no es nulo -->
+        <li th:if="${user.email == null}" th:text="${'No tiene email'}"></li>
     </ul>
 </body>
 </html>

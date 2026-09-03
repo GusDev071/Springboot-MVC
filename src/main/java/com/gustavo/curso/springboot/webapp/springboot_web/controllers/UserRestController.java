@@ -1,13 +1,19 @@
 package com.gustavo.curso.springboot.webapp.springboot_web.controllers;
 import com.gustavo.curso.springboot.webapp.springboot_web.models.User;
 
+// import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+
+
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.gustavo.curso.springboot.webapp.springboot_web.models.dto.UserDTO;
+
 
 
 
@@ -26,6 +32,23 @@ public class UserRestController {
         userDTO.setUser(user); // Asigna el objeto User al UserDTO
         userDTO.setTitle("Hola Mundo");
         return userDTO;
+    }
+
+
+    @GetMapping("/list") //mapea la ruta list a este metodo
+    public List<User> list(){
+        
+        User user = new User("Gustavo", "Gonzalez");
+        User user2 = new User("Pablo", "Gonzalez");
+        User user3 = new User("Carlos", "Gonzalez");
+
+        List<User> users =  Arrays.asList(user, user2, user3); //se usa un helper para disminuir el codigo y crear la lista de usuarios de manera mas sencilla
+
+      /*   List<User> users = new ArrayList<>(); // se crea una lista de usuarios vacia y se agregan los usuarios uno por uno
+        users.add(user);
+        users.add(user2);
+        users.add(user3); */
+        return users;
     }
 
     @GetMapping(path = "/details-map")
