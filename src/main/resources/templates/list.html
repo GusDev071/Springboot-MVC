@@ -8,7 +8,7 @@
 <body>
     <h1 th:text="${title}"></h1>
     <div th:if="${users.isEmpty()}" th:text="${'Ups!, no hay usuarios para mostrar.'}"></div> <!-- Valida que la lista de usuarios no este vacia, si lo esta muestra un mensaje de error. -->
-    <table>
+    <table th:if="${not users.isEmpty()}">
         <thead>
             <tr>
                 <th>Nombre</th>

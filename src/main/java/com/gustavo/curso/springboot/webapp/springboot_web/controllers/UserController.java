@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Arrays;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 
 
@@ -27,15 +28,19 @@ public class UserController {
 
     @GetMapping("/list")
     public String list(ModelMap model){ 
-        List<User> users =  Arrays.asList(
+      
+        model.addAttribute("title", "Listado de usuarios");
+        return "list";
+    }
+
+    @ModelAttribute ("users") // se agrega el atributo users al modelo para que este disponible en todas las vistas
+    public List <User> userModel(){
+        List<User> users = Arrays.asList(
         new User("John", "Doe", "john.doe@gmail.com"), 
         new User("Jane", "Smith", "jane.smith@gmail.com"), 
         new User("Bob", "Johnson", "bob.johnson@gmail.com"), 
-        new User("Alice", "Brown")); //se usa un
-
-        model.addAttribute("users", users);
-        model.addAttribute("title", "Listado de usuarios");
-        return "list";
+        new User("Alice", "Brown")); //se usa un helper para disminuir el codigo y crear la lista de usuarios de manera mas sencilla
+        return users;
     }
 
 }
