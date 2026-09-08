@@ -71,4 +71,3 @@ Si deseas realizar cambios:
 
 ## Licencia
 
-[Especificar el tipo de licencia si corresponde, ej. MIT, Apache 2.0]
