@@ -13,5 +13,10 @@
         <li th:if="${user.email}" th:text="${user.email}"></li> <!-- Se agrega una condicion para que solo se muestre el email si este no es nulo -->
         <li th:if="${user.email == null}" th:text="${'No tiene email'}"></li>
     </ul>
+<a th:href="@{/list}">Volver al listado</a><br>
+<!-- <a th:href="@{'/api/params/foo?message=' + ${title}}">Ver mensaje</a> ESTE MUESTRA EL EJEMPLO DE UNA CONCATENACION--> 
+<a th:href="@{'/api/params/foo?message=Hola mi amor'}">Ver mensaje</a><br>
+<a th:href="@{/api/params/bar(text='Hola mi amor',code='123')}">Ver mensaje2</a><br>
+<a th:href="@{/api/var/baz/Hola algun mensaje}">Ver path variable</a>
 </body>
 </html>
